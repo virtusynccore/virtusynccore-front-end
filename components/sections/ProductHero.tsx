@@ -1,12 +1,11 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
-import HeroBadge from './HeroBadge';
+import { ArrowRight, Zap } from 'lucide-react';
 
-export default function Hero() {
+export default function ProductHero() {
   return (
-    <div id="hero" className="w-full h-screen flex items-center justify-center p-2 sm:p-3 md:p-5 bg-[#000000]">
+    <div id="product-hero" className="w-full h-screen flex items-center justify-center p-2 sm:p-3 md:p-5 bg-[#000000]">
       <section className="relative w-full max-w-[1536px] h-full rounded-2xl md:rounded-[3rem] overflow-hidden flex flex-col items-center bg-white/10">
 
         {/* Video Background */}
@@ -22,7 +21,7 @@ export default function Hero() {
         </video>
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(2,80,103,0.35) 50%, rgba(0,0,0,0.68) 100%)' }} />
+        <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(2,80,103,0.4) 50%, rgba(0,0,0,0.75) 100%)' }} />
 
         {/* Neon grid overlay */}
         <div className="absolute inset-0 z-[1] opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(11,159,189,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,159,189,0.06) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -37,28 +36,36 @@ export default function Hero() {
         <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-4 sm:px-6 text-center">
           <div className="w-full max-w-4xl flex flex-col items-center">
 
-            <div className="mb-4 flex items-center justify-center">
-              <img src="/logo.svg" alt="Crivity Visual Design logo" className="w-14 h-14 sm:w-16 sm:h-16" />
-            </div>
-
-            <HeroBadge />
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 border backdrop-blur-md"
+              style={{ borderColor: '#0B9FBD', background: 'rgba(11,159,189,0.1)' }}
+            >
+              <Zap className="w-4 h-4" style={{ color: '#0B9FBD' }} />
+              <span className="text-xs sm:text-sm font-black uppercase tracking-widest" style={{ color: '#0B9FBD' }}>
+                Powered by NVIDIA SDKs
+              </span>
+            </motion.div>
 
             {/* Main heading */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl sm:text-[2.6rem] md:text-[3.5rem] lg:text-[4.5rem] font-black leading-[1.05] tracking-tight text-white mb-3 mt-2"
               style={{ textShadow: '0 2px 40px rgba(0,0,0,0.6)' }}
             >
-              <span className="text-white block">Intelligent Agent</span>
-              <span className="text-white block">Infrastructure</span>
-              <span className="text-white">&amp; Workflow{' '}</span>
+              <span className="text-white block">Meet AetherSync</span>
+              <span className="text-white block">Enterprise AI Agent</span>
+              <span className="text-white">Platform for </span>
               <span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-[#6C0E42] to-[#B31B6F]"
-                style={{ filter: 'drop-shadow(0 0 20px rgba(179,27,111,0.5))' }}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-[#0B9FBD] to-[#6C0E42]"
+                style={{ filter: 'drop-shadow(0 0 20px rgba(11,159,189,0.5))' }}
               >
-                Automation
+                Autonomous Operations
               </span>
             </motion.h1>
 
@@ -66,38 +73,40 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.65 }}
-              className="text-sm md:text-base lg:text-lg font-medium max-w-sm sm:max-w-xl mb-5 leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.65)' }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="text-sm md:text-base lg:text-lg font-medium max-w-sm sm:max-w-2xl mb-8 leading-relaxed"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
             >
-              Deploy autonomous agents to execute tasks, automate workflows, and coordinate operations.
+              Deploy intelligent autonomous agents that learn, adapt, and execute complex business operations at enterprise scale. Seamlessly integrate with your existing systems.
             </motion.p>
 
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.78 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto"
+              transition={{ duration: 0.6, delay: 0.65 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto mb-12"
             >
               <motion.a
-                href="/product"
+                href="https://app.virtusynccore.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-black uppercase tracking-wider transition-all duration-300"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider transition-all duration-300"
                 style={{ background: 'linear-gradient(135deg, #0B9FBD, #025067)', color: '#000000', boxShadow: '0 0 40px rgba(11,159,189,0.4)' }}
               >
-                Explore AetherSync <ArrowRight className="w-4 h-4" />
+                Launch AetherSync <ArrowRight className="w-4 h-4" />
               </motion.a>
 
               <motion.button
-                onClick={() => window.location.href = '/#features'}
+                onClick={() => document.getElementById('product-benefits')?.scrollIntoView({ behavior: 'smooth' })}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-black uppercase tracking-wider border transition-colors duration-300"
-                style={{ borderColor: '#025067', color: '#0B9FBD', background: 'rgba(2,80,103,0.1)' }}
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-black uppercase tracking-wider border transition-colors duration-300"
+                style={{ borderColor: '#0B9FBD', color: '#0B9FBD', background: 'rgba(11,159,189,0.08)' }}
               >
-                View Platform
+                Explore Features
               </motion.button>
             </motion.div>
 
@@ -105,13 +114,13 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.92 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="flex items-center justify-center gap-5 sm:gap-10 mt-6"
             >
               {[
-                { val: '10M+', label: 'Tasks Automated' },
+                { val: '10M+', label: 'Tasks Per Day' },
+                { val: '<50ms', label: 'Agent Latency' },
                 { val: '99.9%', label: 'Uptime SLA' },
-                { val: '5.2K', label: 'Active Agents' },
               ].map((s, i) => (
                 <div key={i} className="flex flex-col items-center gap-1">
                   <span className="text-lg md:text-2xl font-black text-white" style={{ textShadow: '0 0 16px rgba(11,159,189,0.4)' }}>

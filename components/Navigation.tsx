@@ -14,6 +14,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
+    { label: 'Product', href: '/product' },
     { label: 'Infrastructure', href: '#features' },
     { label: 'Workflows', href: '#how-it-works' },
     { label: 'Pricing', href: '#pricing' },
